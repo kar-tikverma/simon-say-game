@@ -8,6 +8,8 @@ let lvl = 0;
 let origSeq = [];
 let resSeq = [];
 
+h3.innerText = "Press any button to start";
+
 function systemFlash (btn) {
     btn.classList.add("flash");
     setTimeout(() => {
@@ -42,7 +44,7 @@ function check (btn) {
 
 function reset () {
     origSeq.length = 0;
-    h3.innerText = `Game Over! your score is ${lvl-1}`;
+    h3.innerHTML = `Game Over! Your score is ${lvl-1}.<br>Press any button to play again.`;
     lvl = 0;
 }
 
