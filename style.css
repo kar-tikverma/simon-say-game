@@ -29,22 +29,30 @@ body {
     height: 100px;
 }
 
-.green {
-    background-color: #0f0;
-}
-
 .red {
-    background-color: #f00;
+    background-color: rgb(255, 0, 85);
 }
 
-.blue {
-    background-color: #00f;
+.cyan {
+    background-color: rgb(25, 171, 164);
 }
 
-.yellow {
-    background-color: #ff0;
+.purple {
+    background-color: rgb(145, 0, 148);
+}
+
+.orange {
+    background-color: rgb(255, 123, 0);
 }
 
 .flash {
     background-color: #fff;
+}
+
+.user-flash-correct {
+    background-color: #0f0;
+}
+
+.user-flash-incorrect {
+    background-color: #f00;
 }
