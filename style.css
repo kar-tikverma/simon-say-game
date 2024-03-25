@@ -4,12 +4,6 @@ body {
     align-items: center;
 }
 
-/* .outer {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-} */
-
 .outer {
     display: flex;
     flex-wrap: wrap;
