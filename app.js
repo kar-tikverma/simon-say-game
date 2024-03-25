@@ -27,7 +27,7 @@ function userFlashIncorrect () {
     body.classList.add("user-flash-incorrect");
     setTimeout(() => {
         body.classList.remove("user-flash-incorrect");
-    }, 200);
+    }, 50);
 }
 
 function check (btn) {
