@@ -6,6 +6,7 @@ let body = document.querySelector("body");
 let ans = true;
 let lvl = 0;
 let origSeq = [];
+let flashed = false;
 let resSeq = [];
 
 h3.innerText = "Click any button to start";
@@ -34,6 +35,7 @@ function check (btn) {
     if (resSeq[resSeq.length-1] == origSeq[resSeq.length-1]) {
         userFlashCorrect(btn);
         if (resSeq.length == origSeq.length) {
+            flashed = false;
             levelUp(++lvl);
         }
     } else {
@@ -46,23 +48,44 @@ function reset () {
     origSeq.length = 0;
     h3.innerHTML = `Game Over! Your score is ${lvl-1}.<br>Click any button to play again.`;
     lvl = 0;
+    flashed = false;
 }
 
 function levelUp (lvl) {
     h3.innerText = `Level ${lvl}`;
     let ranNum = Math.floor(Math.random() * 4) + 1;
     origSeq.push(ranNum);
+
     for (let i = 0; i < lvl; i++) {
         setTimeout( () => {
             systemFlash(btns[origSeq[i] - 1]);
         }, 500 * (i+1));
     }
-    resSeq.length = 0;
+
+    let delay = 500*lvl;
+    setTimeout(() => {
+        flashed = true;
+        resSeq.length = 0;
+    }, delay);
 }
 
 function buttonPress () {
     if (lvl == 0) {
         levelUp(++lvl);
+    } else if (!flashed) {
+        const p = document.createElement("p");
+        p.innerText = "Please wait for the sequence to complete!";
+        p.style.color = "#f00";
+        p.style.marginTop = "10px";
+        if (!h3.innerText.includes(p.innerText)) {
+            h3.appendChild(p);
+        }
+        
+        setTimeout(() => {
+            try {
+                h3.removeChild(p);
+            } catch {}
+        }, 2000);
     } else {
         if (this == btns[0]) {
             resSeq.push(1);
