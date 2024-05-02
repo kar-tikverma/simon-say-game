@@ -52,7 +52,7 @@ function reset () {
 }
 
 function levelUp (lvl) {
-    h3.innerText = `Level ${lvl}`;
+    h3.innerText = `Level ${lvl}`;;
     let ranNum = Math.floor(Math.random() * 4) + 1;
     origSeq.push(ranNum);
 
